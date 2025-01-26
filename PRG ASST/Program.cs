@@ -27,3 +27,17 @@ void LoadFlights(string filePath)
 
 
 
+// List all Flights
+void ListAllFlights()
+{
+   Console.WriteLine("=============================================");
+   Console.WriteLine("List of Flights for Changi Airport Terminal 5");
+   Console.WriteLine("=============================================");
+   Console.WriteLine("Flight Number   Airline Name           Origin                 Destination            Expected Departure/Arrival Time")
+   foreach (var flight in flights.Values)
+   {
+       Console.WriteLine(flight);
+   }
+}
+
+
