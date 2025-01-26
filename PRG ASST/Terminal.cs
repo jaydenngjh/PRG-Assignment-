@@ -1,58 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
+//==========================================================
+// Student Number: S10268227
+// Student Name: Justine Kyle Supan
+// Partner Name: Jayden Ng
+//==========================================================
 
-public class Terminal
+namespace PRG_ASST
 {
-    public string TerminalName { get; set; }
-    private Dictionary<string, Airline> Airlines { get; set; }
-    private Dictionary<string, BoardingGate> BoardingGates { get; set; }
-
-    public Terminal(string terminalName)
+    public class Terminal
     {
-        TerminalName = terminalName;
-        Airlines = new Dictionary<string, Airline>();
-        BoardingGates = new Dictionary<string, BoardingGate>();
-    }
-
-    public bool AddAirline(Airline airline)
-    {
-        if (Airlines.ContainsKey(airline.Code))
-            return false;
-
-        Airlines.Add(airline.Code, airline);
-        return true;
-    }
-
-    public bool AddBoardingGate(BoardingGate boardingGate)
-    {
-        if (BoardingGates.ContainsKey(boardingGate.GateName))
-            return false;
-
-        BoardingGates.Add(boardingGate.GateName, boardingGate);
-        return true;
-    }
-
-    public Airline GetAirlineFromFlight(Flight flight)
-    {
-        foreach (var airline in Airlines.Values)
+        public string TerminalName { get; set; }
+        private Dictionary<string, Airline> Airlines { get; set; }
+        private Dictionary<string, BoardingGate> BoardingGates { get; set; }
+    
+        public Terminal(string terminalName)
         {
-            if (airline.Flights.ContainsKey(flight.FlightNumber))
-                return airline;
+            TerminalName = terminalName;
+            Airlines = new Dictionary<string, Airline>();
+            BoardingGates = new Dictionary<string, BoardingGate>();
         }
-
-        return null;
-    }
-
-    public void PrintAirlineFees()
-    {
-        foreach (var airline in Airlines.Values)
+    
+        public bool AddAirline(Airline airline)
         {
-            Console.WriteLine($"{airline.Name}: {airline.CalculateFees()}");
+            if (Airlines.ContainsKey(airline.Code))
+                return false;
+    
+            Airlines.Add(airline.Code, airline);
+            return true;
         }
-    }
-
-    public override string ToString()
-    {
-        return $"Terminal: {TerminalName}, Airlines: {Airlines.Count}, Boarding Gates: {BoardingGates.Count}";
+    
+        public bool AddBoardingGate(BoardingGate boardingGate)
+        {
+            if (BoardingGates.ContainsKey(boardingGate.GateName))
+                return false;
+    
+            BoardingGates.Add(boardingGate.GateName, boardingGate);
+            return true;
+        }
+    
+        public Airline GetAirlineFromFlight(Flight flight)
+        {
+            foreach (var airline in Airlines.Values)
+            {
+                if (airline.Flights.ContainsKey(flight.FlightNumber))
+                    return airline;
+            }
+    
+            return null;
+        }
+    
+        public void PrintAirlineFees()
+        {
+            foreach (var airline in Airlines.Values)
+            {
+                Console.WriteLine($"{airline.Name}: {airline.CalculateFees()}");
+            }
+        }
+    
+        public override string ToString()
+        {
+            return $"Terminal: {TerminalName}, Airlines: {Airlines.Count}, Boarding Gates: {BoardingGates.Count}";
+        }
     }
 }
