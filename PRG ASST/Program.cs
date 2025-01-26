@@ -27,18 +27,3 @@ void LoadFlights(string filePath)
 
 
 
-
-// Task 3: List all flights //
-
-
-//void ListAllFlights()
-//{
-//    Console.WriteLine("=============================================");
-//    Console.WriteLine("List of Flights for Changi Airport Terminal 5");
-//    Console.WriteLine("=============================================");
-//    foreach (var flight in terminal.Flights.Values)
-//    {
-//        Console.WriteLine(flight);
-//    }
-//}
-
