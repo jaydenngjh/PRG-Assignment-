@@ -1,4 +1,9 @@
-﻿
+//==========================================================
+// Student Number: S10268227
+// Student Name: Justine Kyle Supan
+// Partner Name: Jayden Ng
+//==========================================================
+
 namespace PRG_ASST
 {
     class DDJBFlight : Flight 
