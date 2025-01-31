@@ -4,23 +4,21 @@
 // Partner Name: Jayden Ng
 //==========================================================
 
-namespace PRG_ASST
+class NORMFlight : Flight
 {
-    class NORMFlight : Flight
+    public NORMFlight(string flightNumber, string origin, string destination, DateTime expectedTime, string status) : base(flightNumber, origin, destination, expectedTime, status)
     {
-        public NORMFlight(string flightNumber, string origin, string destination, DateTime expectedTime, string status) : base(flightNumber, origin, destination, expectedTime, status)
-        {
-            
-        }
 
-        public double CalculateFees()
-        {
-            return base.CalculateFees() + 300;
-        }
+    }
 
-        public override string ToString()
-        {
-            return base.ToString(); 
-        }
+    public double CalculateFees()
+    {
+        return base.CalculateFees() + 300;
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
     }
 }
+
