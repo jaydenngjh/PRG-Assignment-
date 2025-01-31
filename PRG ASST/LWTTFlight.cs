@@ -4,11 +4,9 @@
 // Partner Name: Jayden Ng
 //==========================================================
 
-namespace PRG_ASST
-{
-    class LWTTFlight : Flight
+class LWTTFlight : Flight
     {
-        public double RequestFee { get; set; } 
+        public double RequestFee { get; set; }
 
         public LWTTFlight(string flightNumber, string origin, string destination, DateTime expectedTime, string status) : base(flightNumber, origin, destination, expectedTime, status)
         {
@@ -25,4 +23,3 @@ namespace PRG_ASST
             return base.ToString() + $"Request Fee: {RequestFee}";
         }
     }
-}
