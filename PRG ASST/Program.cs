@@ -4,12 +4,8 @@ using System.IO;
 
 //Start of main program
 Terminal terminal = new Terminal("Changi Airport Terminal 5");
-Dictionary<string, Flight> FlightsDict = new Dictionary<string, Flight>();
-// Basic Feature 1: Load Airlines and Boarding Gates
 LoadAirlines(terminal);
 LoadBoardingGates(terminal);
-
-// Basic Feature 2: Load Flights
 LoadFlights(terminal);
 
 Console.WriteLine("=============================================");
@@ -27,7 +23,7 @@ Console.Write("Please select your option: ");
 string mainOption = Console.ReadLine();
 if (mainOption == "0")
 {
-    Console.WriteLine("Thank you for using Changi Airport Terminal 5 System!");
+    Console.WriteLine("Goodbye!");
     return;
 }
 else if (mainOption == "1")
@@ -75,13 +71,14 @@ static void LoadAirlines(Terminal terminal)
         while ((line = reader.ReadLine()) != null)
         {
             string[] parts = line.Split(',');
-            string code = parts[0];
-            string name = parts[1];
+            string name = parts[0];
+            string code = parts[1];
             Airline airline = new Airline(name, code);
             terminal.AddAirline(airline);
         }
     }
     int NumAirlines = terminal.Airlines.Count;
+    
     Console.WriteLine($"{NumAirlines} Airlines Loaded!");
 }
 
@@ -144,7 +141,6 @@ static void LoadFlights(Terminal terminal)
                     flight = new NORMFlight(flightNumber, origin, destination, expectedTime, status);
                     break;
             }
-
             terminal.Flights.Add(flightNumber, flight);
         }
     }
@@ -158,16 +154,12 @@ static void ListAllFlights(Terminal terminal)
     Console.WriteLine("=============================================");
     Console.WriteLine("List of Flights for Changi Airport Terminal 5");
     Console.WriteLine("=============================================");
-    Console.WriteLine("Flight Number\tAirline Name\tOrigin\tDestination\tExpected Departure/Arrival Time");
+    Console.WriteLine($"{"Flight Number", -16}{"Airline Name", -23}{"Origin", -23}{"Destination", -23}{"Expected Departure/Arrival Time"}");
 
     foreach (var flight in terminal.Flights.Values)
     {
-        Airline airline = terminal.GetAirlineFromFlight(flight);
-        string airlineName = airline != null ? airline.Name : "Unknown";
-        //string airlineName = terminal.Airlines[flight.FlightNumber.Substring(0, 2)].Name;
-        Console.WriteLine($"{flight.FlightNumber}\t{airlineName}\t{flight.Origin}\t{flight.Destination}\t{flight.ExpectedTime}");
-        //string airline = terminal.GetAirlineFromFlight(flight).Name;
-        //Console.WriteLine($"{flight.FlightNumber,-10} {airline,-20} {flight.Origin,-18}  {flight.Destination,-18}  {flight.ExpectedTime,-7} ");
+        string airline = terminal.GetAirlineFromFlight(flight).Name;
+        Console.WriteLine($"{flight.FlightNumber,-15} {airline,-22} {flight.Origin,-21}  {flight.Destination,-21}  {flight.ExpectedTime,-7} ");
     }
 }
 
@@ -179,11 +171,11 @@ static void ListBoardingGates(Terminal terminal)
     Console.WriteLine("=============================================");
     Console.WriteLine("List of Boarding Gates for Changi Airport Terminal 5");
     Console.WriteLine("=============================================");
-    Console.WriteLine("Gate Name\tSupports CFFT\tSupports DDJB\tSupports LWTT");
+    Console.WriteLine($"{"Gate Name", -16}{"CFFT", -21}{"DDJB", -21}{"LWTT", -7}");
 
     foreach (var gate in terminal.BoardingGates.Values)
     {
-        Console.WriteLine($"{gate.GateName}\t{gate.SupportsCFFT}\t{gate.SupportsDDJB}\t{gate.SupportsLWTT}");
+        Console.WriteLine($"{gate.GateName, -16}{gate.SupportsCFFT, -21}{gate.SupportsDDJB, -21}{gate.SupportsLWTT, -7}");
     }
 }
 
