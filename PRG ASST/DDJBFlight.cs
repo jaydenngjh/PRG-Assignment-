@@ -4,9 +4,7 @@
 // Partner Name: Jayden Ng
 //==========================================================
 
-namespace PRG_ASST
-{
-    class DDJBFlight : Flight 
+class DDJBFlight : Flight
     {
         public double RequestFee { get; set; }
         public DDJBFlight(string flightNumber, string origin, string destination, DateTime expectedTime, string status) : base(flightNumber, origin, destination, expectedTime, status)
@@ -22,4 +20,3 @@ namespace PRG_ASST
             return base.ToString();
         }
     }
-}
