@@ -1,5 +1,9 @@
-using System;
-using System.Collections.Generic;
+//==========================================================
+// Student Number: S10268227
+// Student Name: Justine Kyle Supan
+// Partner Name: Jayden Ng
+//==========================================================
+
 
 public class Airline
 {
@@ -11,15 +15,20 @@ public class Airline
     {
         Name = name;
         Code = code;
+        Flights = new Dictionary<string, Flight>();
     }
 
     public bool AddFlight(Flight flight)
     {
         if (Flights.ContainsKey(flight.FlightNumber))
+        {
             return false;
-
-        Flights.Add(flight.FlightNumber, flight);
-        return true;
+        }
+        else
+        {
+            Flights.Add(flight.FlightNumber, flight);
+            return true;
+        }
     }
 
     public double CalculateFees()
