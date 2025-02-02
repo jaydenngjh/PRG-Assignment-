@@ -1,8 +1,9 @@
-using PRG_ASST;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.IO;
+//==========================================================
+// Student Number: S10268227
+// Student Name: Justine Kyle Supan
+// Partner Name: Jayden Ng
+//==========================================================
+
 
 //Start of main program
 Terminal terminal = new Terminal("Changi Airport Terminal 5");
@@ -706,6 +707,3 @@ void DisplayTotalFees(Terminal terminal, BoardingGate boardingGate)
         finalTotalAllAirlines,
         totalDiscountPercentage);
 }
-
-
-
