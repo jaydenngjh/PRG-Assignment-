@@ -1,4 +1,10 @@
-using System;
+//==========================================================
+// Student Number: S10268227
+// Student Name: Justine Kyle Supan
+// Partner Name: Jayden Ng
+//==========================================================
+
+
 
 public class Flight : IComparable<Flight>
 {
@@ -7,6 +13,7 @@ public class Flight : IComparable<Flight>
     public string Destination { get; set; }
     public DateTime ExpectedTime { get; set; }
     public string Status { get; set; }
+
 
     public Flight(string flightNumber, string origin, string destination, DateTime expectedTime, string status)
     {
@@ -41,4 +48,6 @@ public class Flight : IComparable<Flight>
     {
         return this.ExpectedTime.CompareTo(other.ExpectedTime);
     }
+
 }
+
