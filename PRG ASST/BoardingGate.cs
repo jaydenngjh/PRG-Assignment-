@@ -1,4 +1,8 @@
-using System;
+//==========================================================
+// Student Number: S10268227
+// Student Name: Justine Kyle Supan
+// Partner Name: Jayden Ng
+//==========================================================
 
 public class BoardingGate
 {
