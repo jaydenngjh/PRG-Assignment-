@@ -21,4 +21,3 @@ class NORMFlight : Flight
         return base.ToString();
     }
 }
-
